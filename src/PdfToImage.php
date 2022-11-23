@@ -42,7 +42,7 @@ class PdfToImage
         $pdf
             ->setPage($pageNumber)
             ->setLayerMethod(11)
-            ->setColorspace(1)
+            ->setColorspace(13)
             ->width(1000)
             ->saveImage($imageFilePath);
 
