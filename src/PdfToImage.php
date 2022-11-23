@@ -39,7 +39,11 @@ class PdfToImage
 
         $pdf = new Pdf($pdfFilePath);
 
-        $pdf->setPage($pageNumber)->saveImage($imageFilePath);
+        $pdf
+            ->setPage($pageNumber)
+            ->setLayerMethod(11)
+            ->width(1000)
+            ->saveImage($imageFilePath);
 
         return $pdf;
 
