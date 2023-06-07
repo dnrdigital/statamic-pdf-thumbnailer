@@ -28,8 +28,6 @@ class PdfToImage
                 'pdf_converted_page' => $pageNumber
             ])->save();
 
-            unlink($imageFilePath);
-
         }
 
     }
