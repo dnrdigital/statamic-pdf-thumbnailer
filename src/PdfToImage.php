@@ -15,13 +15,14 @@ class PdfToImage
 
         if ($asset->isPdf()) {
 
-            $imageFileFolder = 'thumbs';
+            $container = AssetContainer::find('thumbs');
+
             $imageFileName = $asset->filename() . '.jpg';
-            $imageFilePath = storage_path($imageFileName) . '/' . $imageFileFolder;
+            $imageFilePath = storage_path($imageFileName);
 
             $pdf = self::createImageFromPdf($asset->resolvedPath(), $imageFilePath, $pageNumber);
 
-            $thumbnailAsset = self::createAssetFromImage($asset->container(), $imageFilePath, $imageFileName);
+            $thumbnailAsset = self::createAssetFromImage($container, $imageFilePath, $imageFileName);
 
             $asset->data([
                 'thumbnail' => $thumbnailAsset->id(),
