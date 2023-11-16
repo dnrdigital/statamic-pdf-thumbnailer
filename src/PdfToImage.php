@@ -16,8 +16,8 @@ class PdfToImage
         if ($asset->isPdf()) {
 
             $imageFileFolder = 'thumbs';
-            $imageFileName = $imageFileFolder . '/' . $asset->filename() . '.jpg';
-            $imageFilePath = storage_path($imageFileName);
+            $imageFileName = $asset->filename() . '.jpg';
+            $imageFilePath = storage_path($imageFileName) . '/' . $imageFileFolder;
 
             $pdf = self::createImageFromPdf($asset->resolvedPath(), $imageFilePath, $pageNumber);
 
